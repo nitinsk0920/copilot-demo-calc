@@ -1,3 +1,4 @@
+import pytest
 from calc import add, divide, multiply, parse_expression, subtract
 
 
@@ -19,3 +20,8 @@ def test_divide():
 
 def test_parse_expression():
     assert parse_expression("6 / 3") == 2
+
+
+def test_divide_by_zero():
+    with pytest.raises(ValueError, match="cannot divide by zero"):
+        divide(6, 0)
