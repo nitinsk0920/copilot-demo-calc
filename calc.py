@@ -19,6 +19,8 @@ def divide(a, b):
 
 def parse_expression(text):
     """Evaluate expressions like "6 / 3"."""
+    if not text.strip():
+        raise ValueError("empty expression")
     a, op, b = text.split()
     operations = {"+": add, "-": subtract, "*": multiply, "/": divide}
     return operations[op](float(a), float(b))
