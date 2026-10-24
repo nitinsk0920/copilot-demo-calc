@@ -1,4 +1,6 @@
-from calc import add, divide, multiply, parse_expression, subtract
+import pytest
+
+from calc import add, average, divide, multiply, parse_expression, subtract
 
 
 def test_add():
@@ -19,3 +21,13 @@ def test_divide():
 
 def test_parse_expression():
     assert parse_expression("6 / 3") == 2
+
+
+def test_average():
+    assert average([2, 4, 6]) == 4
+    assert average([1.5, 2.5]) == 2
+
+
+def test_average_empty_list():
+    with pytest.raises(ValueError, match="cannot average an empty list"):
+        average([])

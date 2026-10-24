@@ -22,3 +22,10 @@ def parse_expression(text):
     a, op, b = text.split()
     operations = {"+": add, "-": subtract, "*": multiply, "/": divide}
     return operations[op](float(a), float(b))
+
+
+def average(numbers):
+    """Return the mean of a list of numbers."""
+    if not numbers:
+        raise ValueError("cannot average an empty list")
+    return sum(numbers) / len(numbers)
